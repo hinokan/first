@@ -14,6 +14,7 @@ class PostController extends Controller
     
     public function show(post $post)
     {
-        dd($post);
+        // dd($post);
+        return view('posts.show')->with(['post' => $post]);
     }
 }
