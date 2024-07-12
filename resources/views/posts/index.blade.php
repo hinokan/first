@@ -3,23 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
-
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-      
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
-    <body class="antialiased">
+    <body>
         <h1>Blog Name</h1>
         <div class='posts'>
-            @foreach($posts as $post)
-                <div class=post>
-                    <h2 class='title'>{{ $post->title }}</h2>
-                    <p class=body>{{ $post->body }}</p>
+            @foreach ($posts as $post)
+                <div class='post'>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
+                    <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
         </div>
-        <div class='paginate'>{{ $posts->links()}}</div>
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
     </body>
 </html>
